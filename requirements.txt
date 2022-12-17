@@ -1,6 +1,7 @@
 pandas
-numpy
-scikit-learn
-lightgbm
-tqdm
-pyti
+japanize-matplotlib
+jquants-api-client
+pyyaml
+snowflake-snowpark-python
+snowflake-connector-python
+python-dateutil
