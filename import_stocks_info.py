@@ -28,7 +28,7 @@ def finance_import(snowflake, jqapi, stage, format):
 
     ## ゴミ削除
     os.remove(tmp_path)
-    snowflake.truncate_table(table)
+    # snowflake.truncate_table(table)
 
 def stock_import(snowflake, jqapi, stage, format):
     ## Snowflake環境のインポート設定
@@ -37,7 +37,7 @@ def stock_import(snowflake, jqapi, stage, format):
     pattern = '.*stocks_value_update.csv.*'
 
     ## 情報の取得
-    stocks = jqapi.get_stock(period=7)
+    stocks = jqapi.get_stock(period=10)
 
     ## インポート用のCSVファイルをステージに転送
     stocks.to_csv(tmp_path, index=False, encoding='cp932')
@@ -48,7 +48,7 @@ def stock_import(snowflake, jqapi, stage, format):
 
     ## ゴミ削除
     os.remove(tmp_path)
-    snowflake.truncate_table(table)
+    # snowflake.truncate_table(table)
 
 
 def topix_import(snowflake, jqapi, stage, format):
@@ -69,7 +69,7 @@ def topix_import(snowflake, jqapi, stage, format):
 
     ## ゴミ削除
     os.remove(tmp_path)
-    snowflake.truncate_table(table)
+    # snowflake.truncate_table(table)
 
 if __name__ == "__main__":
     print("----------------------- Job Start -----------------------")
